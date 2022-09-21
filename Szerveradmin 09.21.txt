@@ -1,0 +1,91 @@
+# _RTT_09.21._
+
+# UmlCreator & cheatsheet:
+https://www.plantuml.com/
+https://devhints.io/plantuml
+
+# Notes:
+A házörző az egy(Is A) kutya  sign: triangle
+
+Is-A -> öröklődé és interface megvalósítás.
+
+Has-A kapcsolatnál mindig kell egy mező ami megvalósítja a Has-A kapcsolatot
+a gitárosnak van egy gitrája amit ugy hívunk hogy kedvenc gitár
+
+
+Has-A kapcsolat : születástől fogvan ismerek valamit
+
+
+
+
+
+
+
+# Code:
+
+```sh
+@startuml
+Interface Zenész
+{
+-Zenél():String
+}
+class Gitáros{
++Gitáros(g:Gitár)
++Zenél():String
+-kedvencGitár():Gitár
+}
+class Gitár{
+penget():String
+
+}
+
+Zenész <|-- Gitáros
+Gitáros o-.right.- Gitár :-kedvencGitár
+
+abstract class kutya
+{
+-{static}counterKutyák:int
++{abstract}ugat():void 
+
+}
+
+abstract class singleton
+{
+-{static}singelton:Singelton
+-Singelton()
++{static}getinstance():Singelton
+
+}
+
+class kutya
+class házörző_kutya
+
+
+
+class Kutya{
++örül():void
+}
+class Farok
+{
++csóvál
+}
+Kutya o-right- Farok:SajátF
+note left of Kutya::örül
+sajátF.csóvál();
+end note
+
+
+
+kutya <|-- házörző_kutya
+note "Ős osztály" as N1
+note "Gyermek osztály" as N2
+note left of Gitáros::Zenél
+ KedvenGitár.penget();
+end note
+
+
+N1 .right. kutya
+N2 .left. házörző_kutya
+@enduml
+
+```
